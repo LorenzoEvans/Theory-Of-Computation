@@ -21,9 +21,13 @@ while line != "exit":
     # TODO Else, break number up into area code, prefix, and suffic
     elif match or match2:
         if match:
-            print(f"Found match '{match.pop()}' in {line}.")
+            result = re.sub("[^\d]", "", match.pop())
+            print('no paren: ',result)
+            # print(f"Found match '{match.pop()}' in {line}.")
         elif match2:
-            print(f"Found match '{match2.pop()}' in {line}.")
+            result = re.sub("[^\d]", "", match2.pop())
+            print('with paren: ',result)
+            # print(f"Found match '{match2.pop()}' in {line}.")
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
 
