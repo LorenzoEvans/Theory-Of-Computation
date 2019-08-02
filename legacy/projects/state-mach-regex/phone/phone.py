@@ -10,7 +10,7 @@ while line != "exit":
     # TODO Find matches
     line_txt = line
     match = re.findall("[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{7}|[0-9]{10}", line)
-    match2 = re.findall("[(0-9)]{3}-[0-9]{3}-[0-9]{4}", line)
+    match2 = re.findall("[(0-9)]{5}-[0-9]{3}-[0-9]{4}|[(0-9)]{5}[0-9]{3}-[0-9]{4}|[(0-9)]{5}[0-9]{3}[0-9]{4}", line)
     # print(match)
     
     # TODO If no match found, print that no number was found
@@ -23,7 +23,7 @@ while line != "exit":
         if match:
             print(f"Found match '{match.pop()}' in {line}.")
         elif match2:
-            print(f"Found match '{match.pop()}' in {line}.")
+            print(f"Found match '{match2.pop()}' in {line}.")
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
 
