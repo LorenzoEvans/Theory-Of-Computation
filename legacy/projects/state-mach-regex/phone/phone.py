@@ -10,14 +10,17 @@ while line != "exit":
     # TODO Find matches
     line_txt = line
     match = re.findall("[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{7}|[0-9]{10}", line)
-    print(match)
+
+    # print(match)
     
     # TODO If no match found, print that no number was found
-   
+    if not match:
+       print(f"No match found in {line}")
    
     
     # TODO Else, break number up into area code, prefix, and suffic
-    
+    elif match:
+        print(f"Found match '{match.pop()}' in {line}.")
     
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
