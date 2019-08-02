@@ -14,14 +14,16 @@ while line != "exit":
     # print(match)
     
     # TODO If no match found, print that no number was found
-    if not match:
+    if not match and not match2:
        print(f"No match found in {line}")
    
     
     # TODO Else, break number up into area code, prefix, and suffic
-    elif match:
-        print(f"Found match '{match.pop()}' in {line}.")
-    
+    elif match or match2:
+        if match:
+            print(f"Found match '{match.pop()}' in {line}.")
+        elif match2:
+            print(f"Found match '{match.pop()}' in {line}.")
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
 
