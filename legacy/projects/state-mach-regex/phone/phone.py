@@ -8,7 +8,9 @@ line = input("Enter a phone number to validate or 'exit' when done. ")
 
 while line != "exit":
     # TODO Find matches
-
+    line_txt = line
+    match = re.findall("[0-9]{3}", line)
+    print(match)
     
     # TODO If no match found, print that no number was found
    
@@ -19,7 +21,7 @@ while line != "exit":
     
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
-    
+
     
     # Done validating, read in a new line
     line = input("Enter a phone number to validate or 'exit' when done. ")
