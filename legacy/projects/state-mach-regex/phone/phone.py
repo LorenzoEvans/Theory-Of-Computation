@@ -9,7 +9,7 @@ line = input("Enter a phone number to validate or 'exit' when done. ")
 while line != "exit":
     # TODO Find matches
     line_txt = line
-    match = re.findall("[0-9]{3}", line)
+    match = re.findall("[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{7}|[0-9]{10}", line)
     print(match)
     
     # TODO If no match found, print that no number was found
