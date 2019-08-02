@@ -21,22 +21,28 @@ while line != "exit":
     # TODO Else, break number up into area code, prefix, and suffic
     elif match or match2:
         if match:
-            result = re.sub("[^\d]", "", match.pop())
-            print('no paren: ',result)
-            print('no paren result type: ',type(result))
+            result = re.sub("[^\d]", " ", match.pop())
             area_code = ""
             prefix = ""
             suffix = ""
-            print(type(match))
-            for x in range(len(result)):
-                while result.index(x) <= 4:
-                    area_code += x
-                    print(area_code)
-            # print(f"Found match '{match.pop()}' in {line}.")
+            result = re.split("\s", result)
+            area_code = result[0]
+            prefix = result[1]
+            suffix = result[2]
+            # alright, use a regex split
+            print(f"Area Code: {area_code}, Prefix: {prefix}, Suffix: {suffix}")
         elif match2:
-            result = re.sub("[^\d]", "", match2.pop())
-            print('with paren: ',result)
-            # print(f"Found match '{match2.pop()}' in {line}.")
+            result = re.sub("[^\d]", " ", match2.pop())
+            area_code = ""
+            prefix = ""
+            suffix = ""
+            result = re.split("\s", result)
+            print(result)
+            area_code = result[1]
+            prefix = result[3]
+            suffix = result[4]
+            print(f"Area Code: {area_code}, Prefix: {prefix}, Suffix: {suffix}")
+
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
 
