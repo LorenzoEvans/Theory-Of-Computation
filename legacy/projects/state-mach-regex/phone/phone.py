@@ -23,6 +23,15 @@ while line != "exit":
         if match:
             result = re.sub("[^\d]", "", match.pop())
             print('no paren: ',result)
+            print('no paren result type: ',type(result))
+            area_code = ""
+            prefix = ""
+            suffix = ""
+            print(type(match))
+            for x in range(len(result)):
+                while result.index(x) <= 4:
+                    area_code += x
+                    print(area_code)
             # print(f"Found match '{match.pop()}' in {line}.")
         elif match2:
             result = re.sub("[^\d]", "", match2.pop())
