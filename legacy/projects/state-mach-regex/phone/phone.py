@@ -10,37 +10,23 @@ while line != "exit":
     # TODO Find matches
     match = re.findall("[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{7}|[0-9]{10}", line)
     match2 = re.findall("[(0-9)]{5}-[0-9]{3}-[0-9]{4}|[(0-9)]{5}[0-9]{3}-[0-9]{4}|[(0-9)]{5}[0-9]{3}[0-9]{4}", line)
-    # match3 = re.findall("[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{7}|[0-9]{10}", line)
-    # match4 = re.findall("[0-9]-[(0-9)]{5}-[0-9]{3}-[0-9]{4}|[(0-9)]{5}[0-9]{3}-[0-9]{4}|[(0-9)]{5}[0-9]{3}[0-9]{4}", line)
-    # print(match)
-    # val = (match or match2 or match3 or match4)
-    # TODO If no match found, print that no number was found
-    if not match and not match2:
-       print(f"No match found in {line}")
 
+    # TODO If no match found, print that no number was found
     # TODO Else, break number up into area code, prefix, and suffic
-    elif match or match2:
-        print(match)
+    if match or match2:
         if match:
             result = re.sub("[^\d]", " ", match.pop())
-            area_code = ""
-            prefix = ""
-            suffix = ""
             result = re.split("\s", result)
-            area_code = result[0]
-            prefix = result[1]
-            suffix = result[2]
+            area_code, prefix, suffix = result[0], result[1], result[2]
             print(f"Area Code: {area_code}, Prefix: {prefix}, Suffix: {suffix}")
         elif match2:
             result = re.sub("[^\d]", " ", match2.pop())
-            area_code = ""
-            prefix = ""
-            suffix = ""
             result = re.split("\s", result)
-            area_code = result[1]
-            prefix = result[3]
-            suffix = result[4]
+            area_code, prefix, suffix = result[1], result[3], result[4]
             print(f"Area Code: {area_code}, Prefix: {prefix}, Suffix: {suffix}")
+        else:
+            print(f"No match found in {line}")
+
 
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
